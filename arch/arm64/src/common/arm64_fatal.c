@@ -391,13 +391,5 @@ void arm64_fatal_error(unsigned int reason, struct regs_context * reg)
         }
     }
 
-  if (reg != NULL)
-    {
-      arm64_dump_fatal(reg);
-    }
-
-  for (; ; )
-    {
-      up_mdelay(1000);
-    }
+  PANIC_WITH_REGS("panic", reg);
 }
