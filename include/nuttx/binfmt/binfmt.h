@@ -138,7 +138,8 @@ struct binfmt_s
   /* Unload module callback */
 
   CODE int (*coredump)(FAR struct memory_region_s *regions,
-                       FAR struct lib_outstream_s *stream);
+                       FAR struct lib_outstream_s *stream,
+                       pid_t pid);
 };
 
 /****************************************************************************
@@ -208,7 +209,8 @@ int unregister_binfmt(FAR struct binfmt_s *binfmt);
  ****************************************************************************/
 
 int core_dump(FAR struct memory_region_s *regions,
-              FAR struct lib_outstream_s *stream);
+              FAR struct lib_outstream_s *stream,
+              pid_t pid);
 
 /****************************************************************************
  * Name: load_module
