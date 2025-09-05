@@ -230,12 +230,6 @@ struct lib_bufferedoutstream_s
  * lib_outstream_s
  */
 
-struct lib_syslogstream_s
-{
-  struct lib_outstream_s public;
-  int priority;
-};
-
 struct iob_s;  /* Forward reference */
 
 struct lib_syslogstream_s
@@ -458,25 +452,7 @@ void lib_nullinstream(FAR struct lib_instream_s *nullinstream);
 void lib_nulloutstream(FAR struct lib_outstream_s *nulloutstream);
 
 /****************************************************************************
- * Name: lib_syslogstream
- *
- * Description:
- *   Initializes syslog stream
- *
- * Input Parameters:
- *   stream   - User allocated, uninitialized instance of struct
- *              lib_syslogstream_s to be initialized.
- *   priority - log priority.
- *
- * Returned Value:
- *   None (User allocated instance initialized).
- *
- ****************************************************************************/
-
-void lib_syslogstream(FAR struct lib_syslogstream_s *stream, int priority);
-
-/****************************************************************************
- * Name: lib_syslograwstream_open
+ * Name: lib_syslogstream_open
  *
  * Description:
  *   Initializes a stream for use with the configured syslog interface.
