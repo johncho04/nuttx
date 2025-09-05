@@ -440,7 +440,8 @@ static void dump_core(pid_t pid)
 
   /* Initialize hex output stream */
 
-  lib_syslogstream(&g_syslogstream, LOG_EMERG);
+  // lib_syslogstream(&g_syslogstream, LOG_EMERG);
+  lib_syslogstream_open(&g_syslogstream);
 
   stream = &g_syslogstream;
 
@@ -468,6 +469,7 @@ static void dump_core(pid_t pid)
 #  endif
 
   setlogmask(logmask);
+  lib_syslogstream_close(&g_syslogstream);
 }
 #endif
 
