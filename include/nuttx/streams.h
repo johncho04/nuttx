@@ -238,6 +238,15 @@ struct lib_syslogstream_s
 
 struct iob_s;  /* Forward reference */
 
+struct lib_syslogstream_s
+{
+  struct lib_outstream_s public;
+#ifdef CONFIG_SYSLOG_BUFFER
+  FAR struct iob_s *iob;
+#endif
+  int last_ch;
+};
+
 /* LZF compressed stream pipeline */
 
 #ifdef CONFIG_LIBC_LZF
